@@ -1,7 +1,7 @@
 .tw-followCard {
     display: flex;
     align-items: center;
-    color: #fff;
+    color: #DFD8C8;
     font-size: .8rem;
     justify-content: space-between;
   }
@@ -37,4 +37,17 @@
     font-weight: bold;
     border: 1px solid #000;
     transition: .3s ease background-color;
+    background-color: #DFD8C8;
 }
+
+.tw-followCard-button.is-following{
+ border: 1px solid #DFD8C8;
+
+}
+.tw-followCard-button:hover{
+background-color: #52575D;
+transition: .3s ease background-color;
+}
+.tw-followCard-button.is-following:hover{
+   background-color:#52575D;
+   }

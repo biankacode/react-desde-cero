@@ -12,7 +12,7 @@ export function App () {
         Minu Dev
         </TwiterFoolowCard>
 
-        <TwiterFoolowCard formatUserName={formatUserName}  isFololowing userName="pheralb">
+        <TwiterFoolowCard formatUserName={formatUserName}  isFololowing= {false} userName="pheralb">
         Pablo Hernandez
         </TwiterFoolowCard> 
 
