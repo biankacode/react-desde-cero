@@ -9,9 +9,11 @@ export function TwiterFoolowCard ({formatUserName,userName, children}) {
     ? 'tw-followCard-button is-following'
     : 'tw-followCard-button'  
 
-    function handleState (){
-        setIsFollowing(!isFololowing)
+    const handleState = ()=> {
+     setIsFollowing(!isFololowing) //hocs. de trua fals o de flas a true
     }
+        
+
 
     return(
         <article className='tw-followCard'>

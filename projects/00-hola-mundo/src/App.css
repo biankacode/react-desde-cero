@@ -35,7 +35,6 @@
     border-radius: 999px;
     padding: 6px 16px;
     font-weight: bold;
-    border: 1px solid #000;
     transition: .3s ease background-color;
     background-color: #DFD8C8;
 }
