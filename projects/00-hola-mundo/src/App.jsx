@@ -6,10 +6,15 @@ import { Tittle } from './Tittle'
 export function App () {
     const formatUserName = (userName) => `@${userName}`
     const [name, setName]= useState('midudev')
+    const [isFololowing, setIsFololowing] = useState(false)
+
+console.log('render with name:', name)
+
+
     return(
     <section className='App'>
         <Tittle title={"Follow Card"}/>
-        <TwiterFoolowCard formatUserName={formatUserName}   userName={name}>
+        <TwiterFoolowCard formatUserName={formatUserName}   userName={name} initialIsFlolowing={isFololowing}>
         Minu Dev
         </TwiterFoolowCard>
 
@@ -27,6 +32,10 @@ export function App () {
         
         <button onClick={()=> setName('pedromichel')}>
             Cambio el nombre
+        </button>
+
+        <button onClick={()=> setIsFololowing(!isFololowing)}>
+            Cambiar estado de app
         </button>
 
     </section>
