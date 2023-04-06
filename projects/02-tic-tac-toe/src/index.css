@@ -5,8 +5,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #5CB8E4;
+  background-color: #181818;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -36,7 +36,7 @@ body {
 }
 
 .board h1 {
-  color: #eee;
+  color: #5CB8E4;
   margin-bottom: 16px;
 }
 
@@ -71,6 +71,7 @@ body {
   width: fit-content;
   position: relative;
   border-radius: 10px;
+  color: #5CB8E4; 
 }
 
 .turn .square,
@@ -82,8 +83,8 @@ body {
 }
 
 .square.is-selected {
-  color: #fff;
-  background: #09f;
+  color: #181818;
+  background: #5CB8E4;
 }
 
 .winner {
@@ -113,7 +114,7 @@ body {
 .winner .win {
   margin: 0 auto;
   width: fit-content;
-  border: 2px solid #eee;
+  border: 2px solid #5CB8E4;
   border-radius: 10px;
   display: flex;
   gap: 15px;
@@ -122,7 +123,7 @@ body {
 .square {
   width: 100px;
   height: 100px;
-  border: 2px solid #eee;
+  border: 2px solid #8758FF;
   border-radius: 5px;
   display: grid;
   place-items: center;
