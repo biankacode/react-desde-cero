@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import confetti from "canvas-confetti" 
 import './App.css'
 /* import Suma from "./ejemplo"; */
 
-
+ 
 const TURNS = {
   X: 'x',
   O: 'o'
@@ -62,6 +63,16 @@ function App() {
     return null
   }
 
+const resetGame =  () => {
+setBoard(Array(9).fill(null))
+setTurn(TURNS.X)
+setWiner(null)
+}
+
+const checkEndGame = (newBoard) => {
+return newBoard.every((square)=> square !== null)
+}
+
   const updateBoard = (index) => {// esta function se va a encargar de actualiza y pasar estados
     
     if (board[index] || winner) return //No actualizamos esta posicion si ya tiene algo
@@ -79,15 +90,17 @@ function App() {
     // Revisar si hay un ganador
     const newWinnwer = checkWinner(newBord)
     if (newWinnwer) {
-      setWiner(()=>{
-        return newWinnwer
-     })
+      confetti()
+      setWiner(newWinnwer)
+    } else if (checkEndGame(newBord)) {
+      setWiner(false) //empate
     }
   }
 
   return (
     <main className='board'>
       <h1>Tic tac toe</h1>
+      <button onClick={resetGame}>Reset del juego</button>
       <section className='game'>
         { //Se reenderiza con el .map por que devuelbe un array
           board.map((_, index)=>{
@@ -116,20 +129,21 @@ function App() {
       </section>
       {
         winner !== null && (
-          <section className='winner' >
-            <div className='text'>
+          <section className="winner">
+            <div className="text">
               <h2>
                 {
                   winner === false
                     ? 'Empate'
-                    : 'Gano:'
+                    : 'Ganó:'
                 }
               </h2>
               <header className='win'>
-                  winner && <Square>{winner}</Square>
+                {winner && <Square>{winner}</Square>}
               </header>
+
               <footer>
-                <button>Empezar de nuevo</button>
+                <button onClick={resetGame}>Empezar de nuevo</button>
               </footer>
             </div>
           </section>
