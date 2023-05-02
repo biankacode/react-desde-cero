@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import confetti from "canvas-confetti" 
 import './App.css'
 import { Square } from "./components/Square.jsx";
@@ -16,7 +16,7 @@ function App() {
     if  (boardFromStorage) return JSON.parse(boardFromStorage)
     return Array(9).fill(null)  
   })
-  console.log('board', {board})
+/*   console.log('board', {board}) */
  //primera pocicion el valor del estado, segunda posicion como se actusliza el estado
   const [turn, setTurn] = useState (()=> {
     const turnFromStorage = window.localStorage.getItem('turn')
@@ -39,14 +39,14 @@ function App() {
     if (board[index] || winner) return //No actualizamos esta posicion si ya tiene algo
       
     //actualizar el tablero
-    console.log("Updateboard", {index})
+   /*  console.log("Updateboard", {index}) */
     const newBord = [...board] // copia del array de forma superficial!
     newBord[index] = turn// el newBor que recibe el indice, con el valor de turn actual X, O
-    console.log('newBoard', {newBord})
+   /*  console.log('newBoard', {newBord}) */
     setBoard(newBord) 
     //Cambiar el turno
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
-    console.log("Current Turn", {turn}, "newTurn", {newTurn})
+    /* console.log("Current Turn", {turn}, "newTurn", {newTurn}) */
     setTurn(newTurn)
     //Guardar la partida
     saveGameToStorage ({
@@ -63,7 +63,11 @@ function App() {
       setWiner(false) //empate
     }
   }
-
+   
+  useEffect(()=>{
+    console.log('UseEfect');
+  }, [] )
+   
   return (
     <main className='board'>
       <h1>Tic tac toe</h1>
