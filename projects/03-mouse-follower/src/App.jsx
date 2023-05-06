@@ -6,11 +6,24 @@ function App() {
     console.log('efecto')
   })
   return (
-    <>
-      <h3>Proyecto 3</h3>
+    <main>
+     <div style={{
+        position: 'absolute',
+        backgroundColor: '#09f',
+        border: '1px solid #fff',
+        borderRadius: '50%',
+        opacity: 0.8,
+        pointerEvents: 'none',
+        left: -25,
+        top: -25,
+        width: 50,
+        height: 50,
+      /*   transform: `translate(${position.x}px, ${position.y}px)` */
+     }}
+     />
       <button onClick={()=> setEnabled(!enabled)}>
       {enabled? 'Desactivar' : 'Activar'} segir puntero </button>
-    </>
+    </main>
   )
 }
 
