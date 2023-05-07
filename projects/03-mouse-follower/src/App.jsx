@@ -3,13 +3,18 @@ import { useEffect, useState } from "react"
 function App() {
   const [enabled, setEnabled] = useState(false)
   const [activar, setActivar] = useState(false)
+  const [position, setPosition] = useState({x:0, y:0}) // aqui guardamos la posicion del puntero
   useEffect(() => {
     console.log('efecto',{enabled})
+
     const handleMove = (event) =>{ // la function recive el evento
       const {clientX, clientY} = event //plano carteciano del puntero
       console.log(handleMove, {clientX,clientY});//posicion exacta del puntero
+      setPosition({x:clientX, y:clientY}) 
     }
-    window.addEventListener('pointermove', handleMove)//cuando se mueva el puntero ejecutamos la fuccion handelMove
+    if (enabled) { //solo activar si el anbled es true
+      window.addEventListener('pointermove', handleMove)//cuando se mueva el puntero ejecutamos la fuccion handelMove
+    }
   }, [enabled])// activa y desactiva cuando segir el puntero
 
  
@@ -27,7 +32,7 @@ function App() {
         top: -25,
         width: 50,
         height: 50,
-      /*   transform: `translate(${position.x}px, ${position.y}px)` */
+        transform: `translate(${position.x}px, ${position.y}px)`
      }}
      />
       <button onClick={() => setEnabled(!enabled)}>
