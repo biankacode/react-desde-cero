@@ -4,6 +4,7 @@ function App() {
   const [enabled, setEnabled] = useState(false)
   const [activar, setActivar] = useState(false)
   const [position, setPosition] = useState({x:0, y:0}) // aqui guardamos la posicion del puntero
+
   useEffect(() => {
     console.log('efecto',{enabled})
 
@@ -12,8 +13,12 @@ function App() {
       console.log(handleMove, {clientX,clientY});//posicion exacta del puntero
       setPosition({x:clientX, y:clientY}) 
     }
+
     if (enabled) { //solo activar si el anbled es true
       window.addEventListener('pointermove', handleMove)//cuando se mueva el puntero ejecutamos la fuccion handelMove
+    }
+    return()=>{ // este ayuda a limpìar el evento anteerior 
+      window.removeEventListener('pointermove', handleMove)
     }
   }, [enabled])// activa y desactiva cuando segir el puntero
 
