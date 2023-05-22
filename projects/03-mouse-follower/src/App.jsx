@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 
-const FolowMuse = () =>{
+const FolowMouse = () =>{
   const [enabled, setEnabled] = useState(false)
   const [activar, setActivar] = useState(false)
+
   const [position, setPosition] = useState({x:0, y:0}) // aqui guardamos la posicion del puntero
 
   useEffect(() => {
@@ -24,6 +25,11 @@ const FolowMuse = () =>{
       window.removeEventListener('pointermove', handleMove)
     }
   }, [enabled])// activa y desactiva cuando segir el puntero
+
+
+  useEffect(() => {
+    console.log("Ejecuto el efecto", activar)
+  }, [activar])
 
   return(
     <>
@@ -56,7 +62,7 @@ const FolowMuse = () =>{
 function App() {
   return (
     <main>
-      <FolowMuse/>
+      <FolowMouse/>
     </main>
   )
 }
