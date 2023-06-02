@@ -5,7 +5,7 @@ const CAT_ENPOINR_RANDOM_FACT = 'https://catfact.ninja/fact'
 
 export function App () {
 
-    const [fact, setFact] = useState('Lorem ipsum cat what for ever')
+    const [fact, setFact] = useState()
 
     useEffect(() => {
      fetch(CAT_ENPOINR_RANDOM_FACT)
@@ -15,9 +15,9 @@ export function App () {
    return(
     <main>
          <h1>App de gatitos</h1>
-         <p>{fact}</p>
+         {fact && <p>{fact}</p>} {/* Renderizado condicional  */}
     </main>
-   
+  
    )
 }
 
